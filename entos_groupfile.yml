@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  become: true
+  become_user: root
+  vars:
+    accounts:
+      - dip
+      - cisco
+  tasks:
+    - name: create user accounts
+      user:
+        name: "{{ item }}"
+        state: present
+      with_items: " {{ accounts }}" 

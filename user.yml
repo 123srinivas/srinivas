@@ -1,0 +1,48 @@
+---
+- hosts: localhost
+  become: true
+  become_user: root
+ 
+  vars:
+    users_remove:
+      - games
+      - gppher
+      - appuser
+      - dbuser
+      - appuat
+    group_add:
+      - cisco
+      - is
+      - noaccess
+      - dba
+    group_remove:
+      - users
+      - game
+#      - dip
+
+  tasks:
+
+    - name: Adding Multiple users
+      user:
+        name: "{{item }}"
+        state: absent
+        remove: yes
+      with_items: "{{ users_remove }}"
+    - name: Add groups
+      group:
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ group_add }}" 
+    - name: Remove groups
+      group:
+        name: "{{ item }}"
+        state: absent
+      with_items: "{{ group_remove }}"
+    - name: Set group id to nobody group
+      group:
+        name: nobody
+        gid: 6001
+    - name: Set the group id to floppy group
+      group: 
+        name: floppy
+        gid: 19

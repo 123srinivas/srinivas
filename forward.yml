@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  become: true
+  become_user: root
+ 
+  tasks:
+    - file:
+        path: /root/.forwarder
+        state: touch
+        owner: root
+        group: root
+        mode: 0700
+        content: |
+                 autosupport@cisco.com

@@ -1,0 +1,9 @@
+---
+- hosts: 10.199.138.156
+  tasks:
+  - name: Reboot the system
+    shell: "/sbin/shutdown -r now"
+    become: true
+    async: 1
+    poll: 0
+    ignore_errors: true

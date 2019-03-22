@@ -1,0 +1,16 @@
+---
+- name: book that runs du
+  hosts: localhost
+  become: yes
+  become_user: root
+  become_method: sudo
+  tasks:
+
+  - name: du
+    shell: /usr/bin/du -xBM --max-depth "{{ max_depth | default('1') }}" "{{ path | default('/home') }}" | sort -n | tail -n "{{ tail | default('5') }}" | sed -r -e 's/[[:space:]]+/ /g;'
+    args:
+      warn: no
+    register: du
+
+  - debug:
+      msg: "{{ du.stdout_lines }}"

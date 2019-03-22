@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  
+  tasks:
+    - name: download the patch script
+      shell: wget -o /tmp/linux_snapshot_apply.pl https://wwwin-repomgmt.cisco.com/scripts/linux_snapshot_apply.pl
+      mode: '0775'

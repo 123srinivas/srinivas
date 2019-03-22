@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  become: true
+  become_user: root
+ 
+  tasks:
+    - name: Create forwarder file
+      lineinfile:
+        dest: /root/.forwarder
+        line: autosupport@cisco.com
+        state: present
+        create: yes

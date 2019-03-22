@@ -1,0 +1,11 @@
+---
+
+- hosts: localhost
+  connection: local
+
+  tasks:
+    - name: install package
+      blockinfile:
+        path: /etc/ssh/sshd_config
+        block: |
+          PermitRootLogin yes

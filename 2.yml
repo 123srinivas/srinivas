@@ -1,0 +1,5 @@
+- name: Install package $item
+  action: yum pkg=$item state=installed
+  with_items:
+    - openssh
+    - openssh-clients

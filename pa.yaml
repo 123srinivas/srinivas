@@ -1,0 +1,6 @@
+---
+hostname: ce-stat-dev
+become: true
+
+  - name: "Install package"
+      yum: 

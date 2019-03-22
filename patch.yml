@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+
+  vars:
+    - patch: "linux_snapshot_apply.pl" 
+  tasks:
+    - name: download the patch script
+      get_url:
+        url:  https://wwwin-repomgmt.cisco.com/scripts/{{ patch }}
+        dest: /tmp/{{ patch }}
+        mode: 0775

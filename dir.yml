@@ -1,0 +1,8 @@
+---
+- hosts: 10.199.138.156
+  vars: 
+    - web_dir: /usr/share/sr
+
+  tasks:
+    - name: create a web direcotry
+      file: dest={{web_dir}} mode=775 owner=root group=root
