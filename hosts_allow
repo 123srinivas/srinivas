@@ -1,0 +1,11 @@
+#
+# hosts.allow This file describes the names of the hosts which are
+# allowed to use the local INET services, as decided
+# by the '/usr/sbin/tcpd' server.
+#
+ALL EXCEPT false in.ftpd in.telnetd in.talkd bpcd vopied bpjava-msvc: ALL
+rpcbind: 171.68.0.0/255.255.0.0
+bpcd vopied bpjava-msvc: sjnbu1.cisco.com sjnbu2.cisco.com nirvana.cisco.com sublime.cisco.com rex.cisco.com tool.cisco.com oasis.cisco.com lexus.cisco.com halcyon.cisco.com rtpnbu1.cisco.com tapeboy.cisco.com pink.cisco.com green.cisco.com chains.cisco.com creed.cisco.com rush.cisco.com zazu.cisco.com amsnbu1.cisco.com amsnbms1.cisco.com amsnbms2.cisco.com tapeboy-223.cisco.com tapeboy-224.cisco.com tapeboy-235.cisco.com scuttle.cisco.com apis.cisco.com serapis.cisco.com icecube.cisco.com incubus.cisco.com staind.cisco.com snoop.cisco.com weezer.cisco.com oasis.cisco.com fuschia.cisco.com localhost
+in.talkd: localhost
+false: ALL : banners /usr/local/etc/banners : DENY
+

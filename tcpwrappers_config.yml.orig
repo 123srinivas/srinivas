@@ -1,0 +1,46 @@
+---
+- hosts: localhost
+  become: true
+  become_user: root
+ 
+
+  tasks:
+    - file:
+        path: /usr/local/etc/banners
+        state: directory
+        owner: root
+        group: root
+        mode: 0644
+    - file:
+        path: /etc/xinetd.d
+        state: directory
+        owner: root
+        group: root
+    - file:
+        path: /usr/local/etc/banners/false
+        state: file
+        owner: root
+        group: root
+    - file:
+        path: /usr/local/etc/banners/reject
+        state: file
+        owner: root
+        group: root
+        mode: 0644
+    - file:
+        path: /etc/hosts.allow
+        state: file
+        owner: root
+        group: root
+        mode: 0644
+    - file:
+        path: /etc/hosts.deny
+        state: file
+        owner: root
+        group: root
+        mode: 0644
+    - name: copy the file
+      copy: src=false_file dest=/usr/local/etc/banners/false
+            src=reject_file dest=/usr/local/etc/banners/reject
+            src=hosts_allow dest=/etc/hosts.allow
+            src=hosts_deny dest=/etc/hosts.deny
