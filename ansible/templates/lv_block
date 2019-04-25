@@ -1,0 +1,6 @@
+     - lvname: 
+       size: 
+       create: true
+       fstype: xfs
+       mount: true
+       mntp:    

@@ -1,0 +1,12 @@
+     - lvname: apps
+       size: 1
+       create: true
+       fstype: xfs
+       mount: true
+       mntp:  /tmp/apps  
+     - lvname: apps1
+       size: 1
+       create: true
+       fstype: xfs
+       mount: true
+       mntp: /tmp/apps1   

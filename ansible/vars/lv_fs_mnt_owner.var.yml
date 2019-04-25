@@ -1,0 +1,5 @@
+user_name: new
+group_name: new
+uid_number: 10000
+gid_number: 10000
+lv_fs_mnt_owner_create:
