@@ -1,0 +1,20 @@
+---
+- hosts: localhost
+  become: true
+  become_user: root
+
+  vars:
+    config:
+      - { regex: '^gpgcheck=*', value: 'gpgcheck=1' }
+      - { regex: '^exclude=*', value: 'exclude=vnc* libvnc* tigervnc* libvnc* x11vnc* gvnc* gtk-vnc*' }
+
+  tasks:
+
+  - name: Update the file "/etc/yum.conf" with cisoc standard configuration
+    lineinfile: 
+      dest: /etc/yum.conf
+      regexp: "^{{ item.regex }}.*"
+      line: "{{ item.value }}"
+      state: present
+    with_items: 
+      - "{{ config }}"       
